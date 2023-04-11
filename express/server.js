@@ -13,6 +13,11 @@ app.get('/index.html', function (req, res) {
     res.sendFile(__dirname + "/" + "index.html");
 })
 
+app.get('/', function (req, res) {
+    res.setHeader('Content-Type', 'text/html; charset=utf8');
+    res.send('Hello World');
+})
+
 app.post('/file_upload', function (req, res) {
 
     console.log(req.files[0]);  // 上传的文件信息
