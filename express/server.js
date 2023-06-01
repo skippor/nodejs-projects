@@ -21,8 +21,8 @@ app.get('/', function (req, res) {
 app.post('/file_upload', function (req, res) {
 
     console.log(req.files[0]);  // 上传的文件信息
-
-    var des_file = __dirname + "/" + req.files[0].originalname;
+    var filename = Buffer.from(req.files[0].originalname, "latin1").toString("utf8");
+    var des_file = __dirname + "/upload/" + filename;//req.files[0].originalname;
     fs.readFile(req.files[0].path, function (err, data) {
         fs.writeFile(des_file, data, function (err) {
             if (err) {
@@ -30,7 +30,7 @@ app.post('/file_upload', function (req, res) {
             } else {
                 response = {
                     message: 'File uploaded successfully',
-                    filename: req.files[0].originalname
+                    filename: filename
                 };
             }
             console.log(response);
