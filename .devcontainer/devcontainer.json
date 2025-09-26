@@ -1,0 +1,13 @@
+{
+  "customizations": {
+    "codespaces": {
+      "repositories": {
+        "skippor/blog": {
+          "permissions": {
+            "permissions": "write-all"
+          }
+        }
+      }
+    }
+  }
+}
